@@ -54,17 +54,17 @@ begin
   end;
 
   case flagF of
-    0: writeln('divide by zero exception in f(x,y)');
-
+    0:
+      begin
+        writeln('divide by zero exception in f(x,y)');
+      end;
     1:
       writeln('f(x,y) = ', f:3:3);
   end;
   case FlagG of
-    0:
-      writeln('divide by zero exception in g(x,y)');
+    0:writeln('divide by zero exception in g(x,y)');
 
-    1:
-      writeln('g(x,y) = ', g:3:3);
+    1:writeln('g(x,y) = ', g:3:3);
   end;
   readln;
 

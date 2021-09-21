@@ -5,7 +5,7 @@
    // f(x) = (x+1)/(1-x*x) при x<1
    // f(x) = sqrt(abs(x*x*x-1))+ Sum(1,5,(i-2)*(i-2)) при 1<=
    // f(x) = (x+5)/(12+x+x*x) при x>8
-   // while
+   // repeat until
 {$APPTYPE CONSOLE}
 {$R *.res}
 
@@ -21,7 +21,7 @@ var
 var
   i: integer;
 
-  
+
 
 
 
@@ -32,9 +32,9 @@ begin
   writeln('╔══════════════╦═════════════╗');
   writeln('║       x      ║     f(x)    ║');
   writeln('╠══════════════╬═════════════╣');
-  while x < k do
+  repeat
 
-  begin
+
     flag := 1;
     if x < 1 then
     begin
@@ -61,7 +61,7 @@ begin
     end;
 
     x := x + h;
-  end;
+   until (x >= k);
   writeln('╚════════════════════════════╝');
   readln;
 

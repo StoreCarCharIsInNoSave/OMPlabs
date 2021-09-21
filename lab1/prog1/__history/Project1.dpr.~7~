@@ -19,8 +19,8 @@ var
   i, j: integer;
 
 begin
-  flagF := 1;
-  FlagG := 1;
+     flagf:=1;
+     flagg:=1;
   writeln('¬ведите x,y');
   readln(x, y);
   if x * y < 2 then
@@ -54,18 +54,20 @@ begin
   end;
 
   case flagF of
-    0: writeln('divide by zero exception in f(x,y)');
-
+    0:
+      begin
+        writeln('divide by zero exception in f(x,y)');
+      end;
     1:
       writeln('f(x,y) = ', f:3:3);
   end;
   case FlagG of
     0:
-      writeln('divide by zero exception in g(x,y)');
-
+      begin
+        writeln('divide by zero exception in g(x,y)');
+      end;
     1:
       writeln('g(x,y) = ', g:3:3);
   end;
-  readln;
-
+  readln; 
 end.
