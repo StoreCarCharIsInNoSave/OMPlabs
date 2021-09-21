@@ -1,0 +1,34 @@
+program Project1;
+// Орловский анатолий сергеевич  вариант 15
+// f(x,y) = sin(x)+sin(y) при x*y<0; (x^2+24)/(1+y)^2 при x*y=2; cos(y)+1/sqrt(x*y) при x*y>2;
+// g(x,y) = x-y-1 при x*y<0; sin((x*y+1-x*x)/(1+x)) при x*y=2; abs(2*x*y*x*y-1-x) при x*y>2;
+// вещественно через if и исключая divide by zero exception через флаги
+{$APPTYPE CONSOLE}
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+var
+  f, g, x, y: double;
+
+var
+  flagF, FlagG: byte;
+
+begin
+  writeln('Введите x,y');
+  readln(x, y);
+  if x * y < 2 then
+  begin
+    f := cos(x) * cos(y);
+  end
+  else if (x * y = 2) then
+  begin
+    f := (x * x + 24) / (1 + y) * (1 + y)
+  end
+  else
+  begin
+    f := cos(y) + 1 / sqrt(x * y);
+  end;
+
+end.

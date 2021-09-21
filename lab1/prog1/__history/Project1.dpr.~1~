@@ -1,0 +1,99 @@
+program Project1;
+    // Орловский анатолий сергеевич  вариант 15
+    // f(x,y) = sin(x)+sin(y) при x*y<0; (x^2+24)/(1+y)^2 при x*y=2; cos(y)+1/sqrt(x*y) при x*y>2;
+    // g(x,y) = x-y-1 при x*y<0; sin((x*y+1-x*x)/(1+x)) при x*y=2; abs(2*x*y*x*y-1-x) при x*y>2;
+    //вещественно через if и исключая divide by zero exception через флаги
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+procedure FirstInt();
+var x,y:integer;
+begin
+  Writeln('Целочисленно') ;
+   Readln(x);
+   Readln(y);
+    case x*y of
+    -MaxInt..1: begin
+               writeln('x*y = -maxint..1')  ;
+          Writeln('f(x,y) = ', Round(sin(x))+round(cos(x)));
+          Writeln('g(x,y) = ', 1 div (x-y-1));
+     end;
+     2:begin
+            writeln('x*y = 2');
+             Writeln('f(x,y) = ',(x*x+24)div((1+y)*(1+y))) ;
+             Writeln('g(x,y) = ',Round(Sin(  (x*y+1-(x*x))div(1+x))   )) ;
+     end;
+     3..MaxInt:begin
+               writeln('x*y = 3..maxint');
+               Writeln('f(x,y) = ', Round(Cos(y)) + 1 div Round(sqrt(x*y))) ;
+               Writeln('g(x,y) = ', Abs(2*(x*y*x*y)-1-x)) ;
+     end;
+   end;
+
+end;
+
+procedure FirstDouble();
+var x,y:integer;
+begin
+  Writeln('дробно');
+   Readln(x);
+   Readln(y);
+    case x*y of
+    -MaxInt..1: begin
+               writeln('x*y = -maxint..1')  ;
+          Writeln('f(x,y) = ', sin(x)+cos(x));
+          Writeln('g(x,y) = ', 1/(x-y-1));
+     end;
+     2:begin
+            writeln('x*y = 2');
+             Writeln('f(x,y) = ',(x*x+24)/((1+y)*(1+y))) ;
+             Writeln('g(x,y) = ',Sin(  (x*y+1-(x*x))/(1+x)   )) ;
+     end;
+     3..MaxInt:begin
+               writeln('x*y = 3..maxint');
+               Writeln('f(x,y) = ', Cos(y) + 1/sqrt(x*y)) ;
+               Writeln('g(x,y) = ', Abs(2*(x*y*x*y)-1-x)) ;
+     end;
+   end;
+
+end;
+
+procedure Second(xn,xk,h:double);
+var i:integer;
+var sum:double;
+begin
+  sum:=0;
+   while xn<=xk do begin
+     Writeln('xn = ',xn);
+   if xn<1 then begin
+   Writeln('/xn<1/', (xn+1)/(1-xn*xn));
+   end else if ((1<=xn) and (xn<=8)) then begin
+     for i:=1 to 5 do sum:=sum+((i-2)*(i-2));
+      Writeln('/1<=x<=8/',sum+sqrt(xn*xn*xn-1));
+   end else begin
+     Writeln('/x>8/', xn+5/(12+xn+xn*xn));
+   end;
+
+
+
+
+
+
+     sum:=0;
+   xn:=xn+h;
+   end;
+end;
+
+begin
+   FirstInt();
+  Readln;
+   FirstDouble();
+  Readln;
+   Second(0,10,1);
+   Readln;
+end.
+
