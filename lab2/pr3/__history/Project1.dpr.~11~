@@ -21,11 +21,12 @@ var
 var
   matrix: array of array of integer;
 
+
+
 begin
   writeln('Введите размерность матрицы');
   readln(n);
   setlength(matrix, n);
-  setlength(vector,n);
   // определил память на подмассивы
   for i := 0 to n - 1 do
     setlength(matrix[i], n);
@@ -36,29 +37,30 @@ begin
       write('matrix[', i, '][', j, '] = ');
       readln(matrix[i][j]);
     end;
-    writeln;
+       writeln;
   end;
+
 
   for j := 0 to n - 1 do
   begin
-    min := matrix[0][j];
+
+      min:=matrix[0][j];
+
     for i := 0 to n - 1 do
     begin
-      if matrix[i][j] < min then
-        min := matrix[i][j];
+
+
+    if  matrix[i][j]< min then
+     min:= matrix[i][j];
+
+
+
     end;
-    vector[j] := min;
+
+     vector[j]:=min;
   end;
 
-       writeln('Исходная матрица:') ;
-  for i := 0 to n-1 do begin
-    for j := 0 to n-1 do begin
-            write(matrix[i][j],' ');
-    end;
-    writeln;
-  end;
-  writeln('Полученный массив с минимальными значениями столбцов матрицы:') ;
-       for i := 0 to n-1 do write(vector[i],' ') ;
+
 
   readln;
 

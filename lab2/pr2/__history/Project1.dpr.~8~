@@ -46,16 +46,13 @@ begin
     flag := False;
     // проверка на наличие положительных элементов ПОСЛЕ первого элемента кратного 2
     for i := adres + 1 to size - 1 do
-      if (vector[i] >= 0) then begin
-
-        flag:=true;
+      if (vector[i] > 0) then
         min := vector[i];
-      end;
-    if flag then begin
+    if min <> 0 then begin
       for i := adres + 1 to size - 1 do
-        if (vector[i] >= 0) and (vector[i] < min) then
+        if (vector[i] > 0) and (vector[i] < min) then
           min := vector[i];
-           writeln('Минимальный положительный элемент вектора стоящий после первого четного числа = ',min)
+           writeln('Минимальный элемент вектора стоящий после первого четного числа = ',min)
     end
         else
           writeln('Положительных элементов после первого кратного 2 не найдено');
