@@ -1,0 +1,59 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils;
+   var n,i,j:integer;
+   var matrix:array of array of integer;
+
+begin
+    writeln('Введите размер квадратной матрицы');
+  readln(n);
+  setlength(matrix, n);
+  for i := 0 to n - 1 do
+  begin
+    setlength(matrix[i], n);
+  end;
+
+  for i := 0 to n - 1 do
+  begin
+    for j := 0 to n - 1 do
+    begin
+      // write('Matrix[', i, '] = ');
+      // readln(matrix[i][j]);
+      matrix[i][j] := random(9) + 1;
+    end;
+  end;
+
+
+
+
+
+  for i := 0 to n - 1 do
+    for j := 0 to n - 1 do
+      if ((i = j) or (i + j = n - 1)) then begin
+
+      end;
+
+
+
+
+      writeln('Матрица ');
+  for i := 0 to n - 1 do
+  begin
+    for j := 0 to n - 1 do
+    begin
+      write(matrix[i][j], ' ');
+    end;
+    writeln;
+  end;
+
+
+
+  readln;
+
+
+end.
