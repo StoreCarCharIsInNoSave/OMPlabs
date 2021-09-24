@@ -43,9 +43,6 @@ begin
     writeln('Чётных элементов не обнаружено')
   else
     writeln('Наибольший четный элемент вектора = ', max);
-    writeln('Вектор данных');
-    for i:=1 to size-1 do write(vector[i],' ');
-
 
   readln;
 

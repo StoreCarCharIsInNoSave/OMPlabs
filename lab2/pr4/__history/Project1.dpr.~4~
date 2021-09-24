@@ -1,0 +1,39 @@
+program Project1;
+ (*
+  Орловский ПМ-12 вариант 15
+  4.	Дана квадратная матрица A(nхn).
+   Найти наибольший элемент среди стоящих
+   на главной и побочной диагоналях и поменять
+   его местами с элементом, стоящим на пересечении этих диагоналей.
+*)
+{$APPTYPE CONSOLE}
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+var
+  n, i, j: integer;
+
+var
+  matrix: array of array of integer;
+
+begin
+  writeln('Введите размер квадратной матрицы');
+  readln(n);
+  setlength(matrix, n);
+  for i := 0 to n - 1 do
+  begin
+    setlength(matrix[i], n);
+  end;
+
+  for i := 0 to n - 1 do
+  begin
+    for j := 0 to n - 1 do
+    begin
+      write('Matrix[', i, '] = ');
+      readln(matrix[i][j]);
+    end;
+  end;
+
+end.
