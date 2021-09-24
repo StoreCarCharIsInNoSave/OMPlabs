@@ -1,0 +1,51 @@
+program Project1;
+
+(*
+  Орловский ПК-12 15 варинат
+  Дана квадратная матрица A(nхn).
+  Построить вектор b, где
+  bi, i=1,…,n – минималь-ный элемент i-ого столбца матрицы.
+*)
+{$APPTYPE CONSOLE}
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+var
+  n, min, i, j: integer;
+
+var
+  vector: array of integer;
+
+var
+  matrix: array of array of integer;
+
+ function FindMinInVector(vector:array of integer, const arraySize):integer;
+ begin
+
+ end;
+
+begin
+  writeln('Введите размерность матрицы');
+  readln(n);
+  setlength(matrix, n);
+  // определил память на подмассивы
+  for i := 0 to n - 1 do
+    setlength(matrix[i], n);
+  for i := 0 to n - 1 do
+  begin
+    for j := 0 to n - 1 do
+    begin
+    write('matrix[',i,'][',j,'] = ');
+    readln(matrix[i][j]);
+    end;
+
+  end;
+
+   for i := Low to High do
+
+
+
+  readln;
+end.

@@ -1,0 +1,50 @@
+program Project1;
+(*
+  Орловский ПМ-12 вариант 15
+  Дан целочисленный вектор A(n).
+  Найти минимальное значение положительных элементов,
+  расположенных правее первого элемента, кратного двум.
+*)
+{$APPTYPE CONSOLE}
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+var
+  i, min, size, adres: integer;
+
+var
+  vector: array of integer;
+
+var
+  flag: Boolean;
+
+begin
+  flag := False;
+  writeln('Введите размерность');
+  readln(size);
+  for i := 0 to size - 1 do
+  begin
+    write('Vector[', i, '] = ');
+    readln(vector[i]);
+  end;
+  for i := 0 to size - 1 do
+    if vector[i] mod 2 = 0 then
+    begin
+      adres := i;
+      flag := True;
+      break;
+    end;
+  if flag then
+  begin
+    min := vector[adres];
+    for i := adres to size - 1 do
+      if (vector[i] > 0) and (vector[i] mod 2 = 0) and (min < vector[i]) then
+        min := vector[i];
+
+  end
+  else
+    writeln('Не найдено элементов кратно 2')
+
+end.

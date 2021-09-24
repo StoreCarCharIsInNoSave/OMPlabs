@@ -1,0 +1,54 @@
+program Project1;
+(*
+  Îğëîâñêèé ÏÌ-12 âàğèàíò 15
+  Äàí öåëî÷èñëåííûé âåêòîğ A(n).
+  Íàéòè ìèíèìàëüíîå çíà÷åíèå ïîëîæèòåëüíûõ ıëåìåíòîâ,
+  ğàñïîëîæåííûõ ïğàâåå ïåğâîãî ıëåìåíòà, êğàòíîãî äâóì.
+*)
+{$APPTYPE CONSOLE}
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+var
+  i, min, size, adres: integer;
+
+var
+  vector: array of integer;
+
+var
+  flag: Boolean;
+
+begin
+  flag := False;
+  writeln('Ââåäèòå ğàçìåğíîñòü');
+  readln(size);
+  setlength(vector,size);
+  //ââîæó ìàññèâ
+  for i := 0 to size - 1 do
+  begin
+    write('Vector[', i, '] = ');
+    readln(vector[i]);
+  end;
+    //íàõîæó èíäåêñ ïåğâîãî ıëåìåíòà êğàòíîãî 2
+  for i := 0 to size - 2 do
+    if vector[i] mod 2 = 0 then
+    begin
+      adres := i;
+      flag := True;
+      break;
+    end;
+   // åñëè áûë íàéäåí õîòü 1 ıëåìåíò êğàòíûé 2
+  if flag then
+  begin
+    min := vector[adres];
+    for i := adres to size - 1 do
+      if (vector[i] > 0)  and (min < vector[i]) then
+        min := vector[i];
+
+  end
+  else
+    writeln('Íå íàéäåíî ıëåìåíòîâ êğàòíî 2') ;
+    readln;
+end.
