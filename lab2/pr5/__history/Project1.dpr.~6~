@@ -20,7 +20,7 @@ begin
   writeln('¬ведите размер квадратной матрицы');
   readln(n);
   setlength(matrix, n);
-  if n mod 2 = 0 then writeln('” матрицы с четной размерностью не может быть вершины');
+  if n mod 2 = 0 then writeln('” матрицы с четной размерностью не может быть вершины')
   
   for i := 0 to n - 1 do
   begin
@@ -30,8 +30,8 @@ begin
   begin
     for j := 0 to n - 1 do
     begin
-      write('Matrix[', i, '][',j,'] = ');
-      readln(matrix[i][j]);
+      //write('Matrix[', i, '] = ');
+      //readln(matrix[i][j]);
       matrix[i][j]:= random(9)+1;
     end;
   end;
@@ -47,7 +47,7 @@ begin
   begin
     for j := 0 to n - 1 do
     begin
-      if ((i >= j) and (i + j > n-2 ))  then
+      if ((i > j) and (i + j > n - 1))  then
       begin
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
           FOREGROUND_RED);

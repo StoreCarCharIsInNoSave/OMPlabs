@@ -30,8 +30,8 @@ begin
   begin
     for j := 0 to n - 1 do
     begin
-      write('Matrix[', i, '][',j,'] = ');
-      readln(matrix[i][j]);
+      //write('Matrix[', i, '] = ');
+      //readln(matrix[i][j]);
       matrix[i][j]:= random(9)+1;
     end;
   end;
