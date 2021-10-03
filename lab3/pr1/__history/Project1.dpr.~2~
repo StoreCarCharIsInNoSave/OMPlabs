@@ -1,0 +1,62 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+{$R *.res}
+
+uses
+  System.SysUtils , math;
+
+function Sum(a: double; b: double): double;
+begin
+  result := a + b;
+end;
+
+function Product(a: double; b: double): double;
+begin
+  result := a * b;
+end;
+
+ function Divide(a: double; b: double): double;
+begin
+  result := a * b;
+end;
+
+ function Difference(a: double; b: double): double;
+begin
+  result := a * b;
+end;
+
+function Max(a: double; b: double): double;
+begin
+  if a > b then
+    result := a
+  else
+    result := b;
+end;
+
+function Min(a: double; b: double): double;
+begin
+  if a < b then
+    result := a
+  else
+    result := b;
+end;
+
+var x,b,h,f:double;
+begin
+ writeln('¬ведите нижнюю границу, верхнюю границу, шаг');
+ readln(x,b,h);
+ while x<=b do begin
+  if x<2 then f:=Sum(Product(x,x),tan(x))
+  else if x<=10 then f:=Divide(Difference(x,5),Sum(1,Product(x,x)))
+  else
+  begin
+      f:=Product(Divide(Sum(1,x),Product(x,Product(x,x))),max(divide(1,x),sqrt(sum(x,5))));
+  end;
+  Writeln('X= ',x:3:3);
+  writeln('f = ',f:3:3);
+ x:=x+h;
+
+ end;
+ readln;
+end.

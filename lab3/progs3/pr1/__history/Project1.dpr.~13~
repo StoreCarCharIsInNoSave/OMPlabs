@@ -1,0 +1,66 @@
+program Project1;
+
+(*
+  Орловский ПМ-12 Вариант 15
+  23.	Дан целочисленный вектор А(n).
+  Найти наибольшее из четных и количество нечетных элементов вектора.
+  На печать выдавать исходный вектор и полученный результат.
+  без передачи параметров
+*)
+{$APPTYPE CONSOLE}
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+var
+  vector: array of integer;
+
+Procedure CreateAndFillArrayAndFindMaxOfEvenAndFindCountOfNotEvenElementsThisIsTheLongestTitleIveSeen
+  ();
+var
+  evenCount, max, n,indexMax: integer;
+var
+  flag: boolean;
+begin
+  flag := false;
+  writeln('Введите размерность');
+  readln(n);
+  setlength(vector, n);
+  for var i := 0 to n - 1 do
+  begin
+    write('Vector[', i, '] = ');
+    readln(vector[i]);
+    if not flag then
+      if vector[i] mod 2 = 0 then begin
+        flag := True;
+        indexmax:=i
+      end;
+  end;
+
+  if not flag then
+    writeln('Четных элементов нету, количество нечетных = ', n)
+  else
+  begin
+
+    for var i := 0 to n - 1 do
+    begin
+      if vector[i] mod 2 = 0 then
+      begin
+        inc(evenCount);
+        if vector[i] >max then max:=vector[i];
+      end;
+    end;
+
+    writeln('Самый больший четный элемент = ',max);
+    writeln('Количество нечетных элементов = ',n-evenCount);
+  end;
+
+end;
+
+begin
+  CreateAndFillArrayAndFindMaxOfEvenAndFindCountOfNotEvenElementsThisIsTheLongestTitleIveSeen
+    ();
+  readln;
+
+end.

@@ -1,0 +1,71 @@
+program Project1;
+(*
+  Орловский ПМ-12 Вариант 15
+  24. Дана квадратная матрица. Построить вектор, каждый i-ый элемент которого
+  равен мак-симальному элементу i-ой строки матрицы.
+*)
+{$APPTYPE CONSOLE}
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+type
+  IntMatrix = array of array of integer;
+
+var
+  matrix: IntMatrix;
+
+var
+  size: integer;
+
+Procedure IMDONTNOWHOWTOCALLU();
+var
+  vector: array of integer;
+begin
+  writeln('Введите размерность квадратной матрицы');
+  readln(size);
+  setlength(vector, size);
+  setlength(matrix, size);
+  for var i := 0 to size - 1 do
+    setlength(matrix[i], size);
+  for var i := 0 to size - 1 do
+    for var j := 0 to size - 1 do
+    begin
+      write('Matrix[', i, '][', j, '] = ');
+      readln(matrix[i][j]);
+    end;
+  // вывод до
+  writeln('Введенный массив');
+  for var i := 0 to size - 1 do
+  begin
+    for var j := 0 to size - 1 do
+    begin
+      write(matrix[i][j], ' ');
+    end;
+    writeln;
+  end;
+   var max : integer;
+  for var i := 0 to size - 1 do
+  begin
+  max:=matrix[i][0];
+    for var j := 0 to size - 1 do
+    begin
+         if matrix[i][j]>max then max:=matrix[i][j];
+    end;
+    vector[i]:=max;
+  end;
+        writeln('Полученный вектор');
+   for var i := 0 to size - 1 do
+  begin
+    write(vector[i],' ');
+  end;
+
+end;
+
+begin
+
+  IMDONTNOWHOWTOCALLU();
+  readln;
+
+end.

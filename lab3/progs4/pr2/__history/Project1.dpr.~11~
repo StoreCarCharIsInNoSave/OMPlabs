@@ -1,0 +1,81 @@
+program Project1;
+(*
+  Орловский пм-12 Вариант 15
+  4.	Дана прямоугольная целочисленная матрица A(nxn).
+  Найдите количество тех чисел i от 1 до 5, для которых А[i,j] = 0
+  при некотором j от 1 до 5.
+
+*)
+{$APPTYPE CONSOLE}
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+type
+  IntMatrix = array of array of integer;
+
+Function CreateAndFillMatrix(const size: integer): IntMatrix;
+var
+  matrix: IntMatrix;
+begin
+  setlength(matrix, size);
+  for var i := 0 to size - 1 do
+  begin
+    setlength(matrix[i], size);
+    for var j := 0 to size - 1 do
+    begin
+      write('matrix[', i, '][', j, '] = ');
+      readln(matrix[i][j]);
+    end;
+  end;
+  result := matrix;
+end;
+
+procedure ShowArray(var matrix: IntMatrix; const size: integer);
+begin
+  for var i := 0 to size - 1 do
+  begin
+    for var j := 0 to size - 1 do
+    begin
+      write(matrix[i][j], ' ');
+    end;
+    writeln;
+  end;
+end;
+
+Function CountOfLinesWithZeros(var matrix: IntMatrix; const size: integer):Integer;
+var linesCount:integer;
+begin
+linesCount:=0;
+  for var i := 0 to size - 1 do
+  begin
+    for var j := 0 to size - 1 do
+    begin
+      if matrix[i][j]=0 then begin
+      inc(linesCount);
+      break;
+      end;
+    end;
+
+  end;
+  result:=linesCount;
+end;
+
+var
+  matrix: IntMatrix;
+
+begin
+    writeln('Введите размерность');
+    readln(n);
+  matrix := CreateAndFillMatrix(n);
+  writeln('Введенный массив');
+  ShowArray(matrix, n);
+   writeln('Количество строк, где есть нулевой элемент = ',CountOfLinesWithZeros(matrix,n) );
+
+
+
+
+  readln;
+
+end.

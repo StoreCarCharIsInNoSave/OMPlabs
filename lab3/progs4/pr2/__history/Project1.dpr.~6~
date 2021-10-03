@@ -1,0 +1,49 @@
+program Project1;
+(*
+  Орловский пм-12 Вариант 15
+  4.	Дана прямоугольная целочисленная матрица A(nxn).
+  Найдите количество тех чисел i от 1 до 5, для которых А[i,j] = 0
+  при некотором j от 1 до 5.
+
+*)
+{$APPTYPE CONSOLE}
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+type
+  IntMatrix = array of array of integer;
+
+Function CreateAndFillMatrix(const size: integer): IntMatrix;
+var
+  matrix: IntMatrix;
+begin
+  setlength(matrix, size);
+  for var i := 0 to size - 1 do
+  begin
+    setlength(matrix[i], size);
+    for var j := 0 to size - 1 do
+    begin
+      write('matrix[', i, '][', j, '] = ');
+      readln(matrix[i][j]);
+    end;
+  end;
+end;
+
+procedure ShowArray(var matrix: IntMatrix; const size: integer);
+begin
+  for var i := 0 to size - 1 do
+    for var j := 0 to size - 1 do
+    begin
+      write(matrix[i][j]);
+    end;
+  writeln;
+end;
+
+begin
+
+  ShowArray(CreateAndFillMatrix(3), 3);
+  readln;
+
+end.

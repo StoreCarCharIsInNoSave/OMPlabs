@@ -1,0 +1,57 @@
+program Project1;
+(*
+
+  Орловский ПМ-12 Вариант 15
+  . Вычислить значение функции f на отрезке [a,b] с заданным шагом h.
+  Результаты представить в виде таблицы. Вычисление суммы,
+  произведения, максимального или минимального элемента и функции f
+  оформить в виде отдельных функций пользователя c передачей параметров.
+  f=x*x+tg(x) при x<2
+  f = (x-5)/(1+x*x) при 2<=x<=10
+  f = (1+x)/(x*x*x)* max(1/x,sqrt(x+5)) при x>10
+*)
+{$APPTYPE CONSOLE}
+{$R *.res}
+
+uses
+  System.SysUtils, math;
+
+function Max(a: double; b: double): double;
+begin
+  if a > b then
+    result := a
+  else
+    result := b;
+end;
+
+function F(x: double): double;
+var f:double;
+begin
+  if x < 2 then
+    F := x * x + tan(x)
+  else if x <= 10 then
+    F := (x - 5) / (1 + x * x)
+  else
+  begin
+    F := (1 + x) / (x * x * x) * Max(1 / x, sqrt(x + 5));
+  end;
+  result := f;
+end;
+
+var
+  x, b, h: double;
+
+begin
+  writeln('Введите нижнюю границу, верхнюю границу, шаг');
+  readln(x, b, h);
+  while x <= b do
+  begin
+
+    writeln('X= ', x:3:3);
+    writeln('f = ', F(x):3:3);
+    x := x + h;
+
+  end;
+  readln;
+
+end.
