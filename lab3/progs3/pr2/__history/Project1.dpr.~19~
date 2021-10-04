@@ -63,11 +63,8 @@ begin
   readln(size);
     FillArray(A,size);
     FillArray(B,size);
-
     ShowArray(A,size);
-    writeln;
     ShowArray(B,size);
-    writeln;
     EqualArrays(A, B, size);
   readln;
 

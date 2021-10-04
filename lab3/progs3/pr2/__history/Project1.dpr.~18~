@@ -50,24 +50,11 @@ for var i := 0 to n - 1 do
 end;
 
 
-procedure ShowArray(var vector1: IntVector; n:integer);
-begin
-for var i := 0 to n - 1 do
-  begin
-    write(vector1[i],' ');
-  end;
-end;
-
 begin
   writeln('¬ведите размер массивов');
   readln(size);
     FillArray(A,size);
     FillArray(B,size);
-
-    ShowArray(A,size);
-    writeln;
-    ShowArray(B,size);
-    writeln;
     EqualArrays(A, B, size);
   readln;
 

@@ -46,7 +46,7 @@ begin
   if flag then begin
     for var i := 0 to n - 1 do
     begin
-      if (max < vector[i]) and (vector[i] mod 2 = 0) then
+      if max < vector[i] then
         max := vector[i];
     end;
     writeln('Наибольший четный элемент = ',max);
@@ -55,13 +55,6 @@ begin
     writeln('четных элементов не обнаружено');
 end;
 
-procedure ShowArray();
-begin
-for var i := 0 to n - 1 do
-  begin
-    write(vector[i],' ');
-  end;
-end;
 
 Procedure CountOfNotEven();
 var count:integer;
@@ -75,7 +68,6 @@ begin
   FillArray();
   FindMaxEven();
   CountOfNotEven();
-  ShowArray();
   readln;
 
 end.

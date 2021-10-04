@@ -75,7 +75,6 @@ begin
   FillArray();
   FindMaxEven();
   CountOfNotEven();
-  ShowArray();
   readln;
 
 end.

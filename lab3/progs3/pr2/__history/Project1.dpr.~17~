@@ -9,12 +9,6 @@ program Project1;
 
 uses
   System.SysUtils;
-  type IntVector = array of integer;
-var
-  A, B: IntVector;
-
-var
-  size: integer;
 
 procedure EqualArrays(var vector1: array of integer;
   var vector2: array of integer; const size: integer);
@@ -39,36 +33,29 @@ begin
   writeln('Количество i, где A[i]>B[i] = ', more);
 end;
 
-procedure FillArray(var vector1: IntVector; n:integer);
-begin
- setlength(vector1,n);
-for var i := 0 to n - 1 do
-  begin
-    write('Vector[', i, '] = ');
-    readln(vector1[i]);
-  end;
-end;
+var
+  A, B: array of integer;
 
-
-procedure ShowArray(var vector1: IntVector; n:integer);
-begin
-for var i := 0 to n - 1 do
-  begin
-    write(vector1[i],' ');
-  end;
-end;
+var
+  size: integer;
 
 begin
   writeln('Введите размер массивов');
   readln(size);
-    FillArray(A,size);
-    FillArray(B,size);
+  setlength(A, size);
+  setlength(B, size);
+  for var i := 0 to size - 1 do
+  begin
+    write('A[', i, '] = ');
+    readln(A[i]);
+  end;
 
-    ShowArray(A,size);
-    writeln;
-    ShowArray(B,size);
-    writeln;
-    EqualArrays(A, B, size);
+  for var i := 0 to size - 1 do
+  begin
+    write('B[', i, '] = ');
+    readln(B[i]);
+  end;
+  EqualArrays(A, B, size);
   readln;
 
 end.

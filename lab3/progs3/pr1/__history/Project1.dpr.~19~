@@ -55,13 +55,6 @@ begin
     writeln('четных элементов не обнаружено');
 end;
 
-procedure ShowArray();
-begin
-for var i := 0 to n - 1 do
-  begin
-    write(vector[i],' ');
-  end;
-end;
 
 Procedure CountOfNotEven();
 var count:integer;
@@ -75,7 +68,6 @@ begin
   FillArray();
   FindMaxEven();
   CountOfNotEven();
-  ShowArray();
   readln;
 
 end.

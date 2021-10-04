@@ -18,25 +18,10 @@ var
 
 var
   size: integer;
-
-Procedure IMDONTNOWHOWTOCALLU();
-var
   vector: array of integer;
+
+Procedure ShowMatrix();
 begin
-  writeln('Введите размерность квадратной матрицы');
-  readln(size);
-  setlength(vector, size);
-  setlength(matrix, size);
-  for var i := 0 to size - 1 do
-    setlength(matrix[i], size);
-  for var i := 0 to size - 1 do
-    for var j := 0 to size - 1 do
-    begin
-      write('Matrix[', i, '][', j, '] = ');
-      readln(matrix[i][j]);
-    end;
-  // вывод до
-  writeln('Введенный массив');
   for var i := 0 to size - 1 do
   begin
     for var j := 0 to size - 1 do
@@ -45,20 +30,63 @@ begin
     end;
     writeln;
   end;
-   var min : integer;
+end;
+
+Procedure FillMatrix();
+begin
+  writeln('Введите размерность квадратной матрицы');
+  readln(size);
+    setlength(vector, size);
+  setlength(matrix, size);
+
+  for var i := 0 to size - 1 do
+    setlength(matrix[i], size);
+
   for var i := 0 to size - 1 do
   begin
     for var j := 0 to size - 1 do
     begin
-
+            write('Matrix[', i, '][', j, '] = ');
+      readln(matrix[i][j]);
     end;
-
   end;
 end;
 
+
+Procedure ShowArray();
+begin
+ for var i := 0 to size - 1 do
+  begin
+    write(vector[i], ' ');
+  end;
+end;
+
+
+procedure FindMaxInLineAndFillArray();
+begin
+  var max: integer;
+  for var i := 0 to size - 1 do
+  begin
+    max := matrix[i][0];
+    for var j := 0 to size - 1 do
+    begin
+      if matrix[i][j] > max then
+        max := matrix[i][j];
+    end;
+    vector[i] := max;
+  end;
+end;
+
+
+
+
 begin
 
-  IMDONTNOWHOWTOCALLU();
+  FillMatrix();
+  ShowMatrix();
+  FindMaxInLineAndFillArray();
+  writeln('Полученный массив');
+  ShowArray();
   readln;
 
 end.
