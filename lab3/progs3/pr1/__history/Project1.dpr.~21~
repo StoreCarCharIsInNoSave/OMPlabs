@@ -41,7 +41,6 @@ begin
     begin
       max := vector[i];
       flag := true;
-      break;
     end;
 
   if flag then begin
