@@ -1,0 +1,46 @@
+program Project1;
+(*
+  ќрловский ¬ариант 15
+  ƒан текст, слова которого отдел€ютс€ друг от друга пробелами.
+  —лова, ко-торые заканчиваютс€ той же буквой, что и первое слово,
+  если оно макси-мальное по длине, поместить в конец текста.
+  –аспечатать исходный текст, первое слово,
+  если оно максимальное по длине, и полученный текст.
+
+*)
+{$APPTYPE CONSOLE}
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+type
+  TStringArray = array of string;
+
+var
+  arr: TArray<string>;
+
+begin
+  var
+    text: string :=
+      'ƒанблаблабла текст слова которого отличаютс€ друг от друга пробелами';
+  arr := text.Split([' ']);
+  var
+    max: string := arr[0];
+
+  for var i := 0 to length(arr) - 1 do
+    if max.length < arr[i].length then
+      max := arr[i];
+
+  if max <> arr[0] then
+  begin
+  writeln('ѕервое слово не €вл€етс€ максимальным');
+  writeln(text);
+
+  end else begin
+    writeln('ѕервое слово  €вл€етс€ максимальным');
+  end;
+
+  readln;
+
+end.
