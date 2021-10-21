@@ -103,11 +103,18 @@ begin
     Readln(choseHandler);
     clrscr();
     case choseHandler of
-      1:rewrite(textFile);
-      2:AddToFile();
-      3:FindCountAndSumOfPositiveNumber();
-      4:ShowFile();
-      5:run := not run;
+      1:
+        rewrite(textFile);
+      2:
+        AddToFile();
+      3:
+        FindCountAndSumOfPositiveNumber();
+
+      4:
+        ShowFile();
+
+      5:
+        run := not run;
     end;
 
   end;
