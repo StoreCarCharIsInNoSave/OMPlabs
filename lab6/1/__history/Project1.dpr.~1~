@@ -1,0 +1,37 @@
+program Project1;
+(*
+  Создать текстовый файл F, строки которого содержат целые числа.
+  Обработать файл следующим образом: определить количество положительных чисел
+  и вычислить их сумму. Результат поместить в файл G.
+*)
+{$APPTYPE CONSOLE}
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+var
+  run: boolean;
+
+var
+  choseHandler: integer;
+
+begin
+  while not run do
+  begin
+
+    writeln('Сделайте выбор');
+    writeln('1 - создание файла');
+    writeln('2 - дополнение файла');
+    writeln('3 - обработка');
+    writeln('4 - вывод файла');
+    writeln('5 - выход');
+    readln(choseHandler);
+    case choseHandler of
+
+     5:run:=not run;
+    end;
+
+  end;
+
+end.
