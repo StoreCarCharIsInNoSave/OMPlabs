@@ -73,7 +73,7 @@ begin
 
   close(textFile);
   rewrite(g);
-   writeln(g,'сумма - ',sum);
+   writeln(g,'сумма - ',sum,'\n','Количество - ',count);
    writeln(g,'Количество - ',count);
    close(g);
 end;

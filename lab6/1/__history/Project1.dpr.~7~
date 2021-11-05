@@ -17,7 +17,7 @@ var
   choseHandler: integer;
 
 var
-  textFile,g: text;
+  textFile: text;
 
 procedure clrscr;
 var
@@ -70,12 +70,9 @@ begin
     end;
 
   end;
-
+  writeln('Количество положительных чисел = ', count);
+  writeln('Сумма положительных чисел = ', sum);
   close(textFile);
-  rewrite(g);
-   writeln(g,'сумма - ',sum);
-   writeln(g,'Количество - ',count);
-   close(g);
 end;
 
 procedure ShowFile();
@@ -94,7 +91,6 @@ end;
 
 begin
   assign(textFile, 'file.txt');
-  assign(g,'g.txt');
   while not run do
   begin
 
