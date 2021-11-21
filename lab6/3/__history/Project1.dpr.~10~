@@ -1,0 +1,156 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+(*
+  ¬ программу сортировки вектора из лабораторной работы є3
+  по ”¬ѕ вста-вить две процедуры: запись вектора в файл и чтение вектора из файла.
+  ѕро-грамма должна содержать простейшее текстовое меню
+  ќрловский ј— ¬ариант 15
+  1 Ц ввод вектора с экрана
+  2 Ц запись вектора в файл
+  3 Ц чтение исходного вектора
+  из файла
+  4 Ц сортировка
+  5 Ц вывод полученного вектора
+  на экран
+  6 Ц запись полученного вектора
+  в файл
+  7 Ц выход
+  ¬ыберите режимЦ>
+
+*)
+var
+  matrix: TArray<TArray<integer>>;
+  defMatrix: TArray<TArray<integer>>;
+
+var
+  n: integer;
+
+function StringToArray(text: string): TArray<integer>;
+var
+  temp: TArray<string>;
+var
+  tempInt: TArray<integer>;
+begin
+  temp := text.Split([' ']);
+  n := length(temp) - 1;
+  setlength(matrix, n);
+  setlength(tempInt, n);
+  for var i := 0 to n - 1 do
+    tempInt[i] := temp[i].ToInteger();
+  result := tempInt;
+end;
+
+begin
+  n := 1;
+  var
+    choose: boolean;
+  var
+    input: integer;
+  var
+    textfile: text;
+  assign(textfile, 'textfile.txt');
+  while not choose do
+  begin
+    writeln('1 Ц ¬вод матрицы');
+    writeln('2 Ц ¬ывод матрицы');
+    writeln('3 Ц чтение матрицы из файла');
+    writeln('4 Ц сортировка');
+    writeln('5 Ц вывод полученной матрицы на экран');
+    writeln('6 Ц запись матрицы в файл');
+    writeln('7 Ц выход');
+    writeln('—делайте выбор:');
+    readln(input);
+
+    case input of
+      1:
+        begin
+          writeln('¬ведите размерность');
+          readln(n);
+          setlength(matrix, n);
+          for var i := 0 to n - 1 do
+            setlength(matrix[i], n);
+
+          for var i := 0 to n - 1 do
+            for var j := 0 to n - 1 do
+              readln(matrix[i][j]);
+        end;
+      2:
+        begin
+          for var i := 0 to n - 1 do
+          begin
+            for var j := 0 to n - 1 do
+            begin
+              write(matrix[i][j]:2);
+            end;
+            writeln;
+          end;
+
+        end;
+
+      3:    // надеюсь € смогу пересказать этот бред
+        begin
+          var
+            AllText, text, s: string;
+          reset(textfile);
+          while not EOF(textfile) do
+          begin
+            readln(textfile, s);
+            AllText := AllText + s;
+          end;
+          close(textfile);
+          var
+            ar: TArray<string> := AllText.Split([' ']);
+          n := round(sqrt(length(ar) - 1));
+          setlength(matrix, n);
+          for var i := 0 to n - 1 do
+            setlength(matrix[i], n);
+            writeln(n);
+          var
+            z: integer := 0;
+          for var i := 0 to n - 1 do
+          begin
+            for var j := 0 to n - 1 do
+            begin
+              matrix[i][j] := ar[z].ToInteger();
+              inc(z);
+            end
+          end;
+
+        end;
+      5:
+        begin
+          for var i := 0 to n - 1 do
+          begin
+            for var j := 0 to n - 1 do
+            begin
+              write(matrix[i][j]:2);
+            end;
+            writeln;
+          end;
+
+        end;
+      6:
+        begin
+          rewrite(textfile);
+          for var i := 0 to n - 1 do
+          begin
+            for var j := 0 to n - 1 do
+            begin
+              write(textfile, matrix[i][j], ' ');
+            end;
+            write(textfile, AnsiString(#13#10));
+          end;
+          close(textfile);
+        end;
+      7:
+        choose := true;
+    end;
+  end;
+
+end.
